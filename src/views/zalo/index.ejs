@@ -1,0 +1,50 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<body>
+    <main>
+        <!-- Start Header -->
+        <header>
+            <a href="https://funix.edu.vn" class="header-logo">
+                <img src="/images/logo-funix.png" alt="logo">
+            </a>
+            <div class="header-info">
+                <a href="https://funix.edu.vn/lien-he">
+                    <button class="header-info__btn">Contact Us</button>
+                </a>
+            </div>
+        </header>
+        <!-- End Header -->
+
+         <!-- Start banner -->
+        <section class="gs-banner">
+            <img src="/images/banner.png" alt="banner" >
+        </section>
+        <!-- End banner -->
+
+        <!-- Start Form -->
+        <div class="zalo-form">
+            <div class="form-group">
+                <label for="username">Họ tên</label>
+                <input type="text" name="username" id="username">
+            </div>
+            <div class="form-group">
+                <label for="phone-number">Số điện thoại</label>
+                <input type="number" name="phone-number" id="phone-number">
+            </div>
+
+            <div class="btn-confirm">
+                <div class="error-message"></div>
+                <button id="btn-submit">Gửi thông tin</button>
+            </div>
+            <!-- <div class="inline"></div> -->
+        </div>
+        <!--  End Form -->
+        
+        <!-- <%- include('../includes/footer.ejs') %> -->
+
+    </main>
+
+<script src="../js/zalo/index.js"></script>
+
+</body>
+</html>

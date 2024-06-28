@@ -3,7 +3,8 @@
 </head>
 
 <body>
-    <main>
+<main>
+    
         <!-- Start Header -->
         <header>
             <a href="https://funix.edu.vn" class="header-logo">
@@ -18,38 +19,54 @@
         <!-- End Header -->
 
         <!-- Start banner -->
-        <section class="gs-banner">
-            <div class="gs-banner-right">
-                FUNiX rất mong muốn được biết
-                về trải nghiệm của từng học viên
-                để cải tiến và nâng cao chất lượng từng ngày!
-            </div>
-          
-            <div class="gs-banner-left">
-              <img src="/images/banner.png" alt="banner" >
-            </div>
-          
-            <div class="gs-banner-ellipse1">
-              <img src="../public/images/Ellipse 1.png" alt="ellipse" >
-            </div>
-            <div class="gs-banner-ellipse2">
-              <img src="../public/images/Ellipse 2.png" alt="ellipse" >
-            </div>
-            <div class="gs-banner-ellipse3">
-              <img src="../public/images/Ellipse 3.png" alt="ellipse" >
-            </div>
+        <section class="gs-banner"> 
+            <img src="/images/banner-02.png" alt="banner" >
         </section>
         <!-- End banner -->
-        <div class="survey-content">
+    <div class="survey-content">
         <!-- information classroom -->
+        
         <div class="info-class">
             <h4 class="survey-title">Thông tin sau buổi học:</h4>
             <div class="info-class__table" id="data_table">
                 <!-- data subject -->
+                <div class="info-class__table-data">
+                    <div>
+                        <div class="title">Học viên</div>
+                        <div class="value"><%= data.student_id %></div>
+                    </div>
+                    <div>
+                        <div class="title">Môn học</div>
+                        <div class="value"><%= data.course_id %></div>
+                    </div>
+                    <div>
+                        <div class="title">Mentor/Giảng viên</div>
+                        <div class="value"><%= data.mentor_id %></div>
+                    </div>
+                    <div>
+                        <div class="title">Thời gian diễn ra</div>
+                        <div class="value"><%= data.start_time %></div>
+                    </div>
+                    <div>
+                        <div class="title">Tến độ buổi học</div>
+                        <div class="value"><%= data.progress %></div>
+                    </div>
+                    <div>
+                        <div class="title">Nội dung buổi học</div>
+                        <div class="value"><%= data.course_content %></div>
+                    </div>
+                    <div>
+                        <div class="title">Nhận xét từ Mentor/Giảng viên</div>
+                        <div class="value"><%= data.mentor_evaluation %></div>
+                    </div>
+                    <div>
+                        <div class="title">Nội dung tiếp theo/dặn dò</div>
+                        <div class="value"><%= data.next_note ? data.next_note : 'Chưa có đánh giá' %></div>
+                    </div>
+                </div>
             </div>
             
         </div>
-
         
             <!-- level interest -->
             <div class="rating-face">
@@ -60,7 +77,7 @@
                     <!-- /////////Start rating///////////// -->
                     <div class="e-rating">
                         <div class="e-rating__faces">
-                        <div class="e-rating__face e-rating__face--1" onclick="handleChose(event,'very_dissatisfied')">
+                        <div class="e-rating__face e-rating__face--1" data="very_dissatisfied" onclick="handleChose(event,'very_dissatisfied')">
                             <div class="e-rating__face-inner">
                             <div class="e-rating__eye"></div>
                             <div class="e-rating__eye"></div>
@@ -70,7 +87,7 @@
                             <div class="e-rating__tear"></div>
                             <span class="e-rating__title">Rất tệ</span>
                         </div>
-                        <div class="e-rating__face e-rating__face--2" onclick="handleChose(event,'dissatisfied')">
+                        <div class="e-rating__face e-rating__face--2" data="dissatisfied" onclick="handleChose(event,'dissatisfied')">
                             <div class="e-rating__face-inner">
                             <div class="e-rating__eye"></div>
                             <div class="e-rating__eye"></div>
@@ -78,7 +95,7 @@
                             </div>
                             <span class="e-rating__title">Tệ</span>
                         </div>
-                        <div class="e-rating__face e-rating__face--3" onclick="handleChose(event,'so_so')">
+                        <div class="e-rating__face e-rating__face--3" data="so_so"  onclick="handleChose(event,'so_so')">
                             <div class="e-rating__face-inner">
                             <div class="e-rating__eye"></div>
                             <div class="e-rating__eye"></div>
@@ -86,7 +103,7 @@
                             </div>
                             <span class="e-rating__title">Bình thường</span>
                         </div>
-                        <div class="e-rating__face e-rating__face--4" onclick="handleChose(event,'satisfied')">
+                        <div class="e-rating__face e-rating__face--4" data="satisfied" onclick="handleChose(event,'satisfied')">
                             <div class="e-rating__face-inner">
                             <div class="e-rating__eye"></div>
                             <div class="e-rating__eye"></div>
@@ -94,7 +111,7 @@
                             </div>
                             <span class="e-rating__title">Tốt</span>
                         </div>
-                        <div class="e-rating__face e-rating__face--5" onclick="handleChose(event,'very_satisfied')">
+                        <div class="e-rating__face e-rating__face--5" data="very_satisfied" onclick="handleChose(event,'very_satisfied')">
                             <div class="e-rating__face-inner">
                             <div class="e-rating__eye"></div>
                             <div class="e-rating__eye"></div>
@@ -112,23 +129,28 @@
                 </h4>
                 <div id="content-noted"></div>
             </div>
-        <div class="form-survey">
-            <!-- Info review -->
-            <div class="info-review">
-                <h4 class="survey-title--desc">
-                    Vui lòng chia sẻ lý do tại sao:
-                </h4>
-                <div class="info-review__input">
-                    <textarea rows="5" name="description"></textarea>
+        <% if (!!isSurvey) { %>
+            <div class="form-survey">
+                <!-- Info review -->
+                <div class="info-review">
+                    <h4 class="survey-title--desc">
+                        Vui lòng chia sẻ lý do tại sao:
+                    </h4>
+                    <div class="info-review__input">
+                        <textarea rows="5" name="description"></textarea>
+                    </div>
                 </div>
-            </div>
 
-            <div class="btn-confirm">
-                <div class="error-message"></div>
-                <button onclick="handleSubmit()">Gửi đánh giá</button>
+                <div class="btn-confirm">
+                    <div class="error-message"></div>
+                    <button onclick="handleSubmit()">Gửi đánh giá</button>
+                </div>
+                <input type="hidden" value="<%= sessionInput %>" name="session-input">
             </div>
-
-        </div>
+        <% } else { %>
+            <input type="hidden" value="<%= isSurvey %>" name="isSurvey">
+            <input type="hidden" value="<%= data.parent-evaluation %>" name="parent-evaluation">
+        <% } %>
         <div class="footer-helper">Nếu có bắt cứ vướng mắc gì, vui lòng gửi mail cho itsupport@funix.edu.vn</div>
         <div class="inline"></div>
     </div>
@@ -144,7 +166,7 @@
     </div>
 </main>
 
-<script src="../js/zalo/index.js"></script>
+<script src="/js/online_class/index.js"></script>
 
 </body>
 </html>

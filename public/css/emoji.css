@@ -28,7 +28,7 @@
     flex-wrap: wrap;
     padding-top: 2em;
     padding-bottom: 2em;
-    width: 24em;
+    /* width: 24em; */
     margin: 0 auto;
 }
 .e-rating__sr {
