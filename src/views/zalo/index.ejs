@@ -1,19 +1,6 @@
 <%- include('../includes/head.ejs') %>
 </head>
 <body>
-    <main>
-        <!-- Start Header -->
-        <header>
-            <a href="https://funix.edu.vn" class="header-logo">
-                <img src="/images/logo-funix.png" alt="logo">
-            </a>
-            <div class="header-info">
-                <a href="https://funix.edu.vn/lien-he">
-                    <button class="header-info__btn">Contact Us</button>
-                </a>
-            </div>
-        </header>
-        <!-- End Header -->
 
          <!-- Start banner -->
         <section class="gs-banner">
@@ -41,6 +28,14 @@
         <!--  End Form -->
         
         <!-- <%- include('../includes/footer.ejs') %> -->
+
+        <!-- Popup -->
+        <div id="popup-msg" class="display-none">
+            <div class="popup-content">
+                <i class="btn-close fa-regular fa-circle-xmark"></i>
+                <div id="popup-content"></div>
+            </div>
+        </div>
 
     </main>
 

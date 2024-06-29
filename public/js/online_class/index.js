@@ -12,7 +12,7 @@ let ratingEl = null;
 
 function handleIsSurvey () {
     ratingFaceEl.forEach(i => {
-        if(i.getAttribute('data') === parentEvaluation) {
+        if(i.getAttribute('data') === parentEvaluation || i === ratingEl) {
             i.style.transform = 'translateY(-1em)';
         } else {
             i.style.transform  = "";
@@ -62,8 +62,7 @@ async function handleSubmit () {
     };
 
     try {
-        console.log({data});
-        fetch('/send-survey', {
+        fetch('/online_class', {
             method: 'POST',
             headers: { 
                 'Content-Type': 'application/json'
@@ -73,7 +72,6 @@ async function handleSubmit () {
         )
         .then(response => response.json())
         .then((data) => {
-            console.log('data client', data);
             if(data.code !== 201) {
                 errorMessageEl.innerText = data.message
                 return;

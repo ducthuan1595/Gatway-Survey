@@ -4,19 +4,6 @@
 
 <body>
 <main>
-    
-        <!-- Start Header -->
-        <header>
-            <a href="https://funix.edu.vn" class="header-logo">
-                <img src="/images/logo-funix.png" alt="logo">
-            </a>
-            <div class="header-info">
-                <a href="https://funix.edu.vn/lien-he">
-                    <button class="header-info__btn">Contact Us</button>
-                </a>
-            </div>
-        </header>
-        <!-- End Header -->
 
         <!-- Start banner -->
         <section class="gs-banner"> 
@@ -129,7 +116,7 @@
                 </h4>
                 <div id="content-noted"></div>
             </div>
-        <% if (!!isSurvey) { %>
+        <% if (!isSurvey) { %>
             <div class="form-survey">
                 <!-- Info review -->
                 <div class="info-review">
@@ -149,7 +136,7 @@
             </div>
         <% } else { %>
             <input type="hidden" value="<%= isSurvey %>" name="isSurvey">
-            <input type="hidden" value="<%= data.parent-evaluation %>" name="parent-evaluation">
+            <input type="hidden" value="<%= data.parent_evaluation %>" name="parent-evaluation">
         <% } %>
         <div class="footer-helper">Nếu có bắt cứ vướng mắc gì, vui lòng gửi mail cho itsupport@funix.edu.vn</div>
         <div class="inline"></div>

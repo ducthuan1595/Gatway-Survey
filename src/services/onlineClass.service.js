@@ -14,6 +14,8 @@ const getOnlineClassService = (sessionInput) => {
                         isSurvey,
                         data: data.data
                     })
+                }else {
+                    throw Error('Not found classroom')
                 }
             })
             .catch(err => {
@@ -29,7 +31,7 @@ const sendSurveyService = (values) => {
     return new Promise((resolve, reject) => {
         try{
 
-            fetch(`${URL_API}/api/v1/private_teacher/parent_evaluation}`, {
+            fetch(`${URL_API}/api/v1/private_teacher/parent_evaluation`, {
                 method: 'POST',
                 headers: { 
                     'Content-Type': 'application/json'
@@ -40,13 +42,10 @@ const sendSurveyService = (values) => {
                 return response.json()
             })
             .then(data => {
-                console.log({data});
-                if(data.code === 201) {
-                    resolve ({
-                        message: data.message,
-                        code: data.code
-                    })
-                }
+                resolve({
+                    message: data.message,
+                    code: data.code
+                })
             })
             .catch(err => {
                 reject(err)

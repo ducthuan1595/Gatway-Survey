@@ -1,0 +1,40 @@
+<%- include('./includes/head.ejs') %>
+<style>
+    .page-error {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+        margin: 10px auto;
+    }
+
+    .page-error img {
+        max-width: 50%;
+    }
+
+    .page-error div {
+        text-align: center;
+        color: rgb(88, 89, 89);
+    }
+
+    @media (max-width: 720px) {
+        .page-error {
+            margin: 80px auto;
+        }
+        .page-error img {
+            max-width: 100%;
+        }
+        .page-error div {
+            font-size: 14px;
+        }
+    }
+</style>
+</head>
+
+<body>
+    <div class="page-error">
+        <img src="/images/not-found.png" alt="not found" >
+        <div>Xin lỗi, chúng tôi không tìm thấy trang bạn cần</div>
+    </div>
+</body>
+</html>
