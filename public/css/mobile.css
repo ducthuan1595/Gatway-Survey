@@ -105,14 +105,9 @@
         margin-bottom: 10px;
       }
   
-      /* Form */
-
-      .zalo-form {
-        margin-top: 20px;
-      }
   
     .form-group label {
-      color: #3250BC;
+      color: #fff;
       font-weight: 500;
       cursor: pointer;
       font-size: 14px;
@@ -128,4 +123,4 @@
     .popup-content {
       margin: 120px auto;
     }
-  }
+}

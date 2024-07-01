@@ -1,34 +1,37 @@
 <%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/zalo/index.css">
 </head>
 <body>
+        <div class="zalo-form__bg">
+            <!-- Start banner -->
+            <section class="gs-banner">
+                <div class="gs-banner-right">
+                    <div> Bạn vui lòng cung cấp thông tin số điện thoại để chúng tôi hoàn tất kết nối.</div>
+                    <div>Funix xin cảm ơn!</div>
+                    </div>
+            </section>
+            <!-- End banner -->
 
-         <!-- Start banner -->
-        <section class="gs-banner">
-            <img src="/images/banner.png" alt="banner" >
-        </section>
-        <!-- End banner -->
+            <!-- Start Form -->
+            <div class="zalo-form">
+                <div class="form-group">
+                    <label for="username">Họ tên</label>
+                    <input type="text" name="username" id="username">
+                </div>
+                <div class="form-group">
+                    <label for="phone-number">Số điện thoại</label>
+                    <input type="number" name="phone-number" id="phone-number">
+                </div>
 
-        <!-- Start Form -->
-        <div class="zalo-form">
-            <div class="form-group">
-                <label for="username">Họ tên</label>
-                <input type="text" name="username" id="username">
+                <div class="btn-confirm">
+                    <div class="error-message"></div>
+                    <button id="btn-submit">Gửi thông tin</button>
+                </div>
+                <!-- <div class="inline"></div> -->
             </div>
-            <div class="form-group">
-                <label for="phone-number">Số điện thoại</label>
-                <input type="number" name="phone-number" id="phone-number">
-            </div>
-
-            <div class="btn-confirm">
-                <div class="error-message"></div>
-                <button id="btn-submit">Gửi thông tin</button>
-            </div>
-            <!-- <div class="inline"></div> -->
+            <!--  End Form -->
+            
         </div>
-        <!--  End Form -->
-        
-        <!-- <%- include('../includes/footer.ejs') %> -->
-
         <!-- Popup -->
         <div id="popup-msg" class="display-none">
             <div class="popup-content">
